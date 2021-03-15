@@ -35,15 +35,11 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `umg`.`tbl_aplicacion` (
   `PK_id_aplicacion` INT NOT NULL,
-  `PK_id_modulo` INT NOT NULL,
   `nombre_aplicacion` VARCHAR(45) NULL DEFAULT NULL,
   `descripcion_aplicacion` VARCHAR(200) NULL DEFAULT NULL,
   `no_reporteAsociado` INT NULL DEFAULT NULL,
   `estado_aplicacion` TINYINT NULL DEFAULT NULL,
-  PRIMARY KEY (`PK_id_aplicacion`, `PK_id_modulo`),
-    CONSTRAINT `fk_Aplicacion_Modulo`
-    FOREIGN KEY (`PK_id_modulo`)
-    REFERENCES `umg`.`tbl_modulo` (`PK_id_Modulo`))
+  PRIMARY KEY (`PK_id_aplicacion`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -52,13 +48,13 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `umg`.`tbl_usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `umg`.`tbl_usuario` (
-  `PK_id_usuario` VARCHAR(25) NOT NULL,
-  `nombre_usuario` VARCHAR(45) NULL DEFAULT NULL,
-  `apellido_usuarios` VARCHAR(45) NULL DEFAULT NULL,
+  `PK_id_usuario` INT(20) AUTO_INCREMENT,
+  `usuario_usuario` VARCHAR(45) NULL DEFAULT NULL,
   `password_usuario` VARCHAR(45) NULL DEFAULT NULL,
-  `cambio_contrasena` TINYINT NULL DEFAULT NULL,
-  `ultima_conexion` DATETIME NULL DEFAULT NULL,
-  `estado_usuario` TINYINT NULL DEFAULT NULL,
+  `nombre_usuario` VARCHAR(45) NULL DEFAULT NULL,
+  `correo_usuarios` VARCHAR(45) NULL DEFAULT NULL,
+  `respuesta_usuarios` VARCHAR(45) NULL DEFAULT NULL,
+  `idtipo_usuario` TINYINT NULL DEFAULT NULL,
   PRIMARY KEY (`PK_id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

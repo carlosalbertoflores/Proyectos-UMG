@@ -9,8 +9,10 @@ import seguridad.dominio.Aplicacion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JComboBox;
+//import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import seguridad.vista.Aplicacion_Perfil;
 
 /**
  *
@@ -19,17 +21,18 @@ import javax.swing.JOptionPane;
 public class AplicacionDAO {
 
     //Buscar en la BD
-    private static final String SQL_SELECT = "SELECT PK_id_aplicacion, PK_id_modulo, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion FROM tbl_aplicacion";
+    private static final String SQL_SELECT = "SELECT PK_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion FROM tbl_aplicacion";
     //Insertar en la BD
-    private static final String SQL_INSERT = "INSERT INTO tbl_aplicacion(PK_id_aplicacion, PK_id_modulo, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO tbl_aplicacion(PK_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion) VALUES(?, ?, ?, ?, ?)";
     //Modificar la BD
-    private static final String SQL_UPDATE = "UPDATE tbl_aplicacion SET PK_id_modulo=?, nombre_aplicacion=?, descripcion_aplicacion=?, no_reporteAsociado=?, estado_aplicacion=? WHERE PK_id_aplicacion = ?";
+    private static final String SQL_UPDATE = "UPDATE tbl_aplicacion SET nombre_aplicacion=?, descripcion_aplicacion=?, no_reporteAsociado=?, estado_aplicacion=? WHERE PK_id_aplicacion = ?";
     //Eliminar de la BD
     private static final String SQL_DELETE = "DELETE FROM tbl_aplicacion WHERE PK_id_aplicacion=?";
     //Buscar 2 en la BD
-    public static final String SQL_QUERY = "SELECT PK_id_aplicacion, PK_id_modulo, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion FROM tbl_aplicacion WHERE PK_id_aplicacion = ?";
+    public static final String SQL_QUERY = "SELECT PK_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion FROM tbl_aplicacion WHERE PK_id_aplicacion = ?";
     //Buscar 2 en la BD
-    public static final String SQL_QUERY2 = "SELECT PK_id_Modulo FROM tbl_modulo";
+    //public static final String SQL_QUERY2 = "SELECT PK_id_Modulo FROM tbl_modulo";
+     private static final String SQL_SELECT2 = "SELECT PK_id_aplicacion, PK_id_modulo, nombre_aplicacion, descripcion_aplicacion, no_reporteAsociado, estado_aplicacion FROM tbl_aplicacion";
 
     public List<Aplicacion> select() {
         Connection conn = null;
@@ -44,7 +47,7 @@ public class AplicacionDAO {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int id_Aplicacion = rs.getInt("PK_id_aplicacion");
-                int id_Modulo = rs.getInt("PK_id_modulo");
+                //int id_Modulo = rs.getInt("PK_id_modulo");
                 String nombre_Aplicacion = rs.getString("nombre_aplicacion");
                 String Descripcion_Aplicacion = rs.getString("descripcion_aplicacion");
                 int reporteAsociado_Aplicacion = rs.getInt("no_reporteAsociado");
@@ -52,7 +55,7 @@ public class AplicacionDAO {
 
                 aplicacion = new Aplicacion();
                 aplicacion.setId_Aplicacion(id_Aplicacion);
-                aplicacion.setId_Modulo(id_Modulo);
+                //aplicacion.setId_Modulo(id_Modulo);
                 aplicacion.setNombre_Aplicacion(nombre_Aplicacion);
                 aplicacion.setDescripcion_Aplicacion(Descripcion_Aplicacion);
                 aplicacion.setReporteAsociado_Aplicacion(reporteAsociado_Aplicacion);
@@ -79,11 +82,11 @@ public class AplicacionDAO {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setInt(1, aplicacion.getId_Aplicacion());
-            stmt.setInt(2, aplicacion.getId_Modulo());
-            stmt.setString(3, aplicacion.getNombre_Aplicacion());
-            stmt.setString(4, aplicacion.getDescripcion_Aplicacion());
-            stmt.setInt(5, aplicacion.getReporteAsociado_Aplicacion());
-            stmt.setInt(6, aplicacion.getEstado_Aplicacion());
+            //stmt.setInt(2, aplicacion.getId_Modulo());
+            stmt.setString(2, aplicacion.getNombre_Aplicacion());
+            stmt.setString(3, aplicacion.getDescripcion_Aplicacion());
+            stmt.setInt(4, aplicacion.getReporteAsociado_Aplicacion());
+            stmt.setInt(5, aplicacion.getEstado_Aplicacion());
 
             //System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -108,12 +111,12 @@ public class AplicacionDAO {
             conn = Conexion.getConnection();
             //System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setInt(1, aplicacion.getId_Modulo());
-            stmt.setString(2, aplicacion.getNombre_Aplicacion());
-            stmt.setString(3, aplicacion.getDescripcion_Aplicacion());
-            stmt.setInt(4, aplicacion.getReporteAsociado_Aplicacion());
-            stmt.setInt(5, aplicacion.getEstado_Aplicacion());
-            stmt.setInt(6, aplicacion.getId_Aplicacion());
+            //stmt.setInt(1, aplicacion.getId_Modulo());
+            stmt.setString(1, aplicacion.getNombre_Aplicacion());
+            stmt.setString(2, aplicacion.getDescripcion_Aplicacion());
+            stmt.setInt(3, aplicacion.getReporteAsociado_Aplicacion());
+            stmt.setInt(4, aplicacion.getEstado_Aplicacion());
+            stmt.setInt(5, aplicacion.getId_Aplicacion());
             rows = stmt.executeUpdate();
             //System.out.println("Registros actualizado:" + rows);
 
@@ -169,7 +172,7 @@ public class AplicacionDAO {
 
             while (rs.next()) {
                 int id_Aplicacion = rs.getInt("PK_id_aplicacion");
-                int id_Modulo = rs.getInt("PK_id_modulo");
+                //int id_Modulo = rs.getInt("PK_id_modulo");
                 String nombre_Aplicacion = rs.getString("nombre_aplicacion");
                 String Descripcion_Aplicacion = rs.getString("descripcion_aplicacion");
                 int reporteAsociado_Aplicacion = rs.getInt("no_reporteAsociado");
@@ -177,7 +180,7 @@ public class AplicacionDAO {
 
                 aplicacion = new Aplicacion();
                 aplicacion.setId_Aplicacion(id_Aplicacion);
-                aplicacion.setId_Modulo(id_Modulo);
+                //aplicacion.setId_Modulo(id_Modulo);
                 aplicacion.setNombre_Aplicacion(nombre_Aplicacion);
                 aplicacion.setDescripcion_Aplicacion(Descripcion_Aplicacion);
                 aplicacion.setReporteAsociado_Aplicacion(reporteAsociado_Aplicacion);
@@ -196,6 +199,7 @@ public class AplicacionDAO {
 
     }
 
+    /*
     public void query2(JComboBox cbxModulo) {
 
         Connection conn = null;
@@ -224,6 +228,31 @@ public class AplicacionDAO {
             Conexion.close(conn);
         }
 
-    }
+    }*/
+    
+    public void select2(){
+    DefaultTableModel modo = new DefaultTableModel();
+    modo.addColumn("Codigo");
+    modo.addColumn("Nombre");
+    Aplicacion_Perfil.tabla1.setModel(modo);
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    String datos[]= new String[2];
+    try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT2);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                datos[0] = rs.getString("PK_id_aplicacion");
+                datos[1] = rs.getString("nombre_aplicacion");
+                
+                modo.addRow(datos);
+            }
+            Aplicacion_Perfil.tabla1.setModel(modo);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+}
 
 }
