@@ -31,7 +31,7 @@ public class MDIComercial1 extends javax.swing.JFrame {
    
     public MDIComercial1() throws UnknownHostException {
         initComponents();
-             Icon icon = new ImageIcon("C:src/main/java/Imagen/2.jpg");
+      
            jLabel1.setIcon(new ImageIcon("src\\main\\java\\Imagen\\2.jpg"));
            jLabel1.setVisible(true);
             
@@ -254,6 +254,7 @@ public class MDIComercial1 extends javax.swing.JFrame {
     private void M_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_productoActionPerformed
         MantenimientoProductos ventana = new MantenimientoProductos();
         jDesktopPane1.add(ventana);
+         jLabel1.setVisible(true);
  
         // TODO add your handling code here:
     }//GEN-LAST:event_M_productoActionPerformed
@@ -261,7 +262,7 @@ public class MDIComercial1 extends javax.swing.JFrame {
     private void M_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_proveedorActionPerformed
         MantenimientoProveedor ventana = new MantenimientoProveedor();
         jDesktopPane1.add(ventana);
-  
+   jLabel1.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_M_proveedorActionPerformed
 
@@ -271,7 +272,7 @@ public class MDIComercial1 extends javax.swing.JFrame {
 
         jDesktopPane1.add(FmrBitacora );
 
-
+ jLabel1.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
