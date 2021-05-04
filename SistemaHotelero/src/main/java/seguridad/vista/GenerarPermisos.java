@@ -160,7 +160,7 @@ public class GenerarPermisos {
             }
             if (modulo == "Comercial") {
                   MDIComercial1.M_venta.setVisible(true);
-                      MDIComercial1.M_compras.setVisible(false);
+                      MDIComercial1.M_compras.setVisible(true);
      MDIComercial1.M_cliente.setVisible(true);
               
    MDIComercial1.M_deudor.setVisible(false);
