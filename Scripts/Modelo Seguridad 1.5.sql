@@ -1,5 +1,3 @@
-﻿-- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -66,17 +64,21 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `umg`.`tbl_bitacora` (
   `PK_id_bitacora` INT NOT NULL AUTO_INCREMENT,
   `PK_id_usuario` VARCHAR(25) NOT NULL,
-  `fecha` VARCHAR(25) NULL DEFAULT NULL,
+  `fecha` VARCHAR(25)  null DEFAULT NULL,
   `hora` VARCHAR(25) NULL DEFAULT NULL,
   `host1` VARCHAR(45) NULL DEFAULT NULL,
   `ip` VARCHAR(25) NULL DEFAULT NULL,
   `accion` VARCHAR(50) NULL DEFAULT NULL,
   `tabla` VARCHAR(45) NULL DEFAULT NULL,
-`modulo` VARCHAR(25) NULL DEFAULT NULL,
-  PRIMARY KEY (`PK_id_bitacora`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+`PK_id_Modulo` int (25) NULL DEFAULT NULL,
+PRIMARY KEY (`PK_id_bitacora`),
+ CONSTRAINT `fk_PK_id_Modulo`
+ FOREIGN KEY (`PK_id_Modulo`)
+REFERENCES `umg`.`tbl_modulo` (`PK_id_Modulo`)
+)
 
+ ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `umg`.`tbl_perfil_encabezado`
 -- -----------------------------------------------------
@@ -164,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `umg`.`tbl_aplicacion_a_modulos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
+INSERT INTO `umg`.`tbl_modulo` (`PK_id_Modulo`, `nombre_modulo`, `descripcion_modulo`, `estado_modulo`) VALUES ('3000', 'comercial', 'asignacion', '1');
 -- -----------------------------------------------------
 -- Insert usuarios (Hoteleria)
 -- -----------------------------------------------------

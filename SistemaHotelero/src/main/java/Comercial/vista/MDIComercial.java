@@ -317,7 +317,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("Acceso ");
     
  Insertar.setCodigoAplicacion("3001");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -349,8 +349,8 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Acceso  ");
     
- Insertar.setCodigoAplicacion("3002");
-           Insertar.setModulo("Comercial");
+ Insertar.setCodigoAplicacion("3000");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -393,8 +393,8 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Accesso");
     
- Insertar.setCodigoAplicacion("200");
-           Insertar.setModulo("Comercial");
+ Insertar.setCodigoAplicacion("3000");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -427,7 +427,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("ayuda");
     
  Insertar.setCodigoAplicacion("0000");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -452,7 +452,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("cerrar");
     
  Insertar.setCodigoAplicacion("0");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -480,7 +480,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("Acceso");
     
  Insertar.setCodigoAplicacion("3003");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -511,7 +511,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("Acceso");
     
  Insertar.setCodigoAplicacion("30010");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);
@@ -541,7 +541,7 @@ public class MDIComercial extends javax.swing.JFrame {
         Insertar.setAccion("Acceso");
     
  Insertar.setCodigoAplicacion("3010");
-           Insertar.setModulo("Comercial");
+           Insertar.setModulo("3000");
 
             try {
                 BitacoraDAO.insert(Insertar);

@@ -64,9 +64,9 @@ public class BitacoraDao extends Conexion {
      * declaracion estatico de selec ,insert y query
      */
 
-    private static final String SQL_INSERT = "INSERT INTO tbl_bitacora( PK_id_usuario, fecha,hora,ip,accion,tabla,host1,modulo ) VALUES(?, ?,?, ?,?, ?,?,?)";
-    private static final String SQL_SELECT = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla ,host1,modulo FROM tbl_bitacora";
-    private static final String SQL_QUERY = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla,host1,modulo FROM tbl_bitacora WHERE PK_id_usuario = ?";
+    private static final String SQL_INSERT = "INSERT INTO tbl_bitacora( PK_id_usuario, fecha,hora,ip,accion,tabla,host1,PK_id_Modulo ) VALUES(?, ?,?, ?,?, ?,?,?)";
+    private static final String SQL_SELECT = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla ,host1,PK_id_Modulo FROM tbl_bitacora";
+    private static final String SQL_QUERY = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla,host1,PK_id_Modulo FROM tbl_bitacora WHERE PK_id_usuario = ?";
 
     /**
      *
@@ -104,7 +104,7 @@ public class BitacoraDao extends Conexion {
                 String ip = rs.getString("ip");
                 String accion = rs.getString("accion");
                 String CodigoAplicacion = rs.getString("tabla");
-                 String Modulo = rs.getString("modulo");
+                 String Modulo = rs.getString("PK_id_Modulo");
 
                 usuario = new Bitacora();
                 usuario.setId_Bitacora(id_bitacora);
@@ -165,7 +165,7 @@ public class BitacoraDao extends Conexion {
                 String ip = rs.getString("ip");
                 String accion = rs.getString("accion");
                 String codigoAplicacion = rs.getString("tabla");
-                     String modulo = rs.getString("modulo");
+                     String modulo = rs.getString("PK_id_Modulo");
 
 
                 /**
